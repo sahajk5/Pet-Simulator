@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -18,14 +19,14 @@ public class HelloWorld {
 
         System.out.println("Welcome to the Pet Simulator!! A place where you can take care of a pet without all the mess!");
         System.out.println("Please choose your pet- Dog/Cat");
-        String pet = scan.nextLine();
+        String pet = scan.nextLine().toLowerCase();
 
 
-        if (Objects.equals(pet, "Dog")){
+        if (Objects.equals(pet, "dog")){
             System.out.println("A "+pet+"! Good choice!");
             Dog();
         }
-        else if (Objects.equals(pet, "Cat")){
+        else if (Objects.equals(pet, "cat")){
             System.out.println("A "+pet+"! Good choice!");
             Cat();
         }
