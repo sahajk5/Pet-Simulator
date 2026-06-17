@@ -18,21 +18,23 @@ public class HelloWorld {
         Scanner scan = new Scanner (System.in);
 
         System.out.println("Welcome to the Pet Simulator!! A place where you can take care of a pet without all the mess!");
-        System.out.println("Please choose your pet- Dog/Cat");
-        String pet = scan.nextLine().toLowerCase();
 
+        while(true) {
+            System.out.println("Please choose your pet- Dog/Cat");
+            String pet = scan.nextLine().toLowerCase();
 
-        if (Objects.equals(pet, "dog")){
-            System.out.println("A "+pet+"! Good choice!");
+            if (Objects.equals(pet, "dog")) {
+            System.out.println("A dog! Good choice!");
             Dog();
-        }
-        else if (Objects.equals(pet, "cat")){
-            System.out.println("A "+pet+"! Good choice!");
+            break;
+             } else if (Objects.equals(pet, "cat")) {
+            System.out.println("A cat! Good choice!");
             Cat();
-        }
-        else{
-            System.out.println("Please choose a correct option.");
-        }
+            break;
+            } else {
+            System.out.println("Please choose a valid option.");
+            }
+    }
 
 
     }
