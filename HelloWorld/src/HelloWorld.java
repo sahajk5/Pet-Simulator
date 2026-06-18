@@ -8,6 +8,7 @@ public class HelloWorld {
     {
         Scanner scan = new Scanner (System.in);
 
+        // Asking for the dog's name
         System.out.println("What would you like to name your dog?");
         String dogName = scan.nextLine();
         System.out.println("        .-\"-.\n" +
@@ -18,6 +19,51 @@ public class HelloWorld {
                 "       \"\"' '\"\"");
         System.out.println("Woof!Woof!!");
         System.out.println("This is your dog "+dogName+".");
+        System.out.println("Now your job is to take care of it and make sure it doesn't die!");
+
+        // Variables for the dog's needs
+        int happy = 10;
+        int hunger = 10;
+        int energy = 10;
+
+        System.out.println("Right now "+dogName+"'s needs are at these levels-\n" +
+                "Happiness = "+happy+"\n" +
+                "Hunger = "+hunger+"\n" +
+                "Energy = "+energy);
+
+        while(true)
+        {
+            System.out.println("What's your next action? (play/eat/sleep)");
+            String action = scan.nextLine().toLowerCase();
+
+            if (action.equals("play")){
+                System.out.println("    ,    /-.\n" +
+                        "   ((___/ __>\n" +
+                        "   /      }\n" +
+                        "   \\ .--.(    \n" +
+                        "    \\\\   \\\\()\n" +
+                        "wooff woofff");
+                System.out.println("Seems like yall are having fun!");
+                if (happy<10)
+                {
+                    happy = happy + 2;
+                }
+
+                if (hunger>0){
+                    hunger = hunger - 3;
+                }
+
+                if (energy>0){
+                    energy = energy - 1;
+                }
+            System.out.println("These are the current stats now-\n" +
+                    "Happiness = "+happy+"\n" +
+                    "Hunger = "+hunger+"\n" +
+                    "Energy = "+energy);
+            }
+        }
+
+
     }
 
     // Method for when the user chooses cat
@@ -33,6 +79,7 @@ public class HelloWorld {
                 "(__d b__)");
         System.out.println("Meoww meowww");
         System.out.println("This is your cat "+catName+".");
+        System.out.println("Now your job is to take care of it and make sure it doesn't die!");
     }
 
     public static void main (String[] args)
