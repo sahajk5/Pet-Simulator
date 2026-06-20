@@ -1,7 +1,8 @@
 import java.util.Objects;
 import java.util.Scanner;
 
-public class HelloWorld {
+public class HelloWorld
+{
 
     // Method for when the user chooses dog
     static void Dog()
@@ -36,31 +37,103 @@ public class HelloWorld {
             System.out.println("What's your next action? (play/eat/sleep)");
             String action = scan.nextLine().toLowerCase();
 
-            if (action.equals("play")){
-                System.out.println("    ,    /-.\n" +
-                        "   ((___/ __>\n" +
-                        "   /      }\n" +
-                        "   \\ .--.(    \n" +
-                        "    \\\\   \\\\()\n" +
+            // When the user selects play
+            if (action.equals("play")) {
+                System.out.println("         __\n" +
+                        " ,.    ,\" ,`-o\n" +
+                        "(_(   (  | _,'\n" +
+                        " \\ `-' `-' (__\n" +
+                        " (    O   `--.'\n" +
+                        " /)  .__,`--~'\n" +
+                        "((  (          \n" +
+                        "  `'''\n" +
                         "wooff woofff");
                 System.out.println("Seems like yall are having fun!");
-                if (happy<10)
-                {
+
+                // Update the stats after playing
+                if (happy < 10) {
                     happy = happy + 2;
                 }
 
-                if (hunger>0){
+                if (hunger > 0) {
                     hunger = hunger - 3;
                 }
 
-                if (energy>0){
+                if (energy > 0) {
                     energy = energy - 1;
                 }
+            }
+
+            // When the user selects eat
+            else if (action.equals("eat")) {
+                System.out.println("    ,    /-.\n" +
+                        "   ((___/ __>\n" +
+                        "   /      }\n" +
+                        "   \\ .--.(    ___\n" +
+                        "    \\\\   \\\\  /___\\\n" +
+                        "nom nom");
+                System.out.println("Awww looks like " + dogName + " is enjoying the food");
+
+                // Update stats after eating
+                if (happy > 0) {
+                    happy = happy - 1;
+                }
+
+                if (hunger < 10) {
+                    hunger = hunger + 3;
+                }
+
+                if (energy < 10) {
+                    energy = energy + 2;
+                }
+            }
+
+            // When the user selects sleep
+            else if (action.equals("sleep"))
+            {
+                System.out.println("       .-\"\"\"\"-.\n" +
+                        "      /      / \\\n" +
+                        "      |.--'\"`\\_|\n" +
+                        "      (  '/ '  )\n" +
+                        "       \\  -   /\n" +
+                        "       _`)  (`_\n" +
+                        "     /`  '--'  `\\\n" +
+                        "    /    _,,_    z\\\n" +
+                        "   /   /`    `\\z   \\\n" +
+                        "   /\\_/ / 6 6\\ \\_/\\\n" +
+                        "   \\  \\/\\  Y /\\/  /\n" +
+                        "    \\ \\/ `'U` \\/ /\n" +
+                        "     \\(  \\  /  )/\n" +
+                        "      |\\_/  \\_/|\n" +
+                        "      /  ____  \\\n" +
+                        "      \\ ( || ) /\n" +
+                        "      (__)||(__)\n" +
+                        "       |  ||  |\n" +
+                        "       |  ||  |\n" +
+                        "       |__||__|\n" +
+                        "       /  |/  |\n" +
+                        "      /  //  /\n" +
+                        "     `\"\"` `\"`");
+                System.out.println("Look at you and "+dogName+(" sleeping together :)"));
+
+                // Update stats after sleeping
+                if (happy>0){
+                    happy = happy - 1;
+                }
+
+                if (hunger<10){
+                    hunger = hunger - 5;
+                }
+
+                if (energy<10){
+                    energy = energy + 3;
+                }
+
+            }
             System.out.println("These are the current stats now-\n" +
                     "Happiness = "+happy+"\n" +
                     "Hunger = "+hunger+"\n" +
                     "Energy = "+energy);
-            }
         }
 
 
@@ -112,5 +185,4 @@ public class HelloWorld {
 
 
     }
-
 }
