@@ -53,10 +53,16 @@ public class HelloWorld
                 // Update the stats after playing
                 if (happy < 10) {
                     happy = happy + 2;
+                    if (happy > 10){
+                        happy = 10;
+                    }
                 }
 
                 if (hunger > 0) {
                     hunger = hunger - 3;
+                    if (hunger < 0){
+                        hunger = 0;
+                    }
                 }
 
                 if (energy > 0) {
@@ -81,10 +87,16 @@ public class HelloWorld
 
                 if (hunger < 10) {
                     hunger = hunger + 3;
+                    if (hunger > 10){
+                        hunger = 10;
+                    }
                 }
 
                 if (energy < 10) {
                     energy = energy + 2;
+                    if (energy > 10){
+                        energy = 10;
+                    }
                 }
             }
 
@@ -117,16 +129,22 @@ public class HelloWorld
                 System.out.println("Look at you and "+dogName+(" sleeping together :)"));
 
                 // Update stats after sleeping
-                if (happy>0){
+                if (happy > 0){
                     happy = happy - 1;
                 }
 
-                if (hunger<10){
+                if (hunger > 0){
                     hunger = hunger - 5;
+                    if (hunger < 0){
+                        hunger = 0;
+                    }
                 }
 
-                if (energy<10){
+                if (energy < 10){
                     energy = energy + 3;
+                    if (energy > 10){
+                        energy = 10;
+                    }
                 }
 
             }
