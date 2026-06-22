@@ -5,9 +5,8 @@ public class HelloWorld
 {
 
     // Method for when the user chooses dog
-    static void Dog()
-    {
-        Scanner scan = new Scanner (System.in);
+    static void Dog() {
+        Scanner scan = new Scanner(System.in);
 
         // Asking for the dog's name
         System.out.println("What would you like to name your dog?");
@@ -19,7 +18,7 @@ public class HelloWorld
                 "      (/ /^\\ \\)-'\n" +
                 "       \"\"' '\"\"");
         System.out.println("Woof!Woof!!");
-        System.out.println("This is your dog "+dogName+".");
+        System.out.println("This is your dog " + dogName + ".");
         System.out.println("Now your job is to take care of it and make sure it doesn't die!");
 
         // Variables for the dog's needs
@@ -27,14 +26,15 @@ public class HelloWorld
         int hunger = 10;
         int energy = 10;
 
-        System.out.println("Right now "+dogName+"'s needs are at these levels-\n" +
-                "Happiness = "+happy+"\n" +
-                "Hunger = "+hunger+"\n" +
-                "Energy = "+energy);
+        System.out.println("Right now " + dogName + "'s needs are at these levels-\n" +
+                "Happiness = " + happy + "\n" +
+                "Hunger = " + hunger + "\n" +
+                "Energy = " + energy);
 
-        while(true)
+
+        while (true)
         {
-            System.out.println("What's your next action? (play/eat/sleep)");
+            System.out.println("What's your next action? (play/eat/sleep/exit)");
             String action = scan.nextLine().toLowerCase();
 
             // When the user selects play
@@ -53,20 +53,23 @@ public class HelloWorld
                 // Update the stats after playing
                 if (happy < 10) {
                     happy = happy + 2;
-                    if (happy > 10){
+                    if (happy > 10) {
                         happy = 10;
                     }
                 }
 
                 if (hunger > 0) {
                     hunger = hunger - 3;
-                    if (hunger < 0){
+                    if (hunger < 0) {
                         hunger = 0;
                     }
                 }
 
                 if (energy > 0) {
-                    energy = energy - 1;
+                    energy = energy - 2;
+                    if (energy < 0) {
+                        energy = 0;
+                    }
                 }
             }
 
@@ -87,14 +90,14 @@ public class HelloWorld
 
                 if (hunger < 10) {
                     hunger = hunger + 3;
-                    if (hunger > 10){
+                    if (hunger > 10) {
                         hunger = 10;
                     }
                 }
 
                 if (energy < 10) {
                     energy = energy + 2;
-                    if (energy > 10){
+                    if (energy > 10) {
                         energy = 10;
                     }
                 }
@@ -126,32 +129,47 @@ public class HelloWorld
                         "       /  |/  |\n" +
                         "      /  //  /\n" +
                         "     `\"\"` `\"`");
-                System.out.println("Look at you and "+dogName+(" sleeping together :)"));
+                System.out.println("Look at you and " + dogName + (" sleeping together :)"));
 
                 // Update stats after sleeping
-                if (happy > 0){
+                if (happy > 0) {
                     happy = happy - 1;
                 }
 
-                if (hunger > 0){
+                if (hunger > 0) {
                     hunger = hunger - 5;
-                    if (hunger < 0){
+                    if (hunger < 0) {
                         hunger = 0;
                     }
                 }
 
-                if (energy < 10){
+                if (energy < 10) {
                     energy = energy + 3;
-                    if (energy > 10){
+                    if (energy > 10) {
                         energy = 10;
                     }
                 }
-
             }
-            System.out.println("These are the current stats now-\n" +
-                    "Happiness = "+happy+"\n" +
-                    "Hunger = "+hunger+"\n" +
-                    "Energy = "+energy);
+
+            // When the user selects exit
+            else if (action.equals("exit")){
+                break; // ends the loop
+            }
+
+            // When the user puts anything else other than the options given
+            else
+            {
+                System.out.println("Please choose a correct action.");
+            }
+
+            // This shows the user the lastest stats of their dog
+            if (action.equals("play") || action.equals("eat") || action.equals("sleep")){
+                System.out.println("These are the current stats now-\n" +
+                        "Happiness = " + happy + "\n" +
+                        "Hunger = " + hunger + "\n" +
+                        "Energy = " + energy);
+            }
+
         }
 
 
